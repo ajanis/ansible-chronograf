@@ -5,7 +5,8 @@
       state: 'present'
   when: not chronograf_use_repo
   tags: 'chronograf-install'
-
+  when:
+    - not chronograf_containerized
 - name: 'Debian - Install apt-transport-https allows https apt downloads'
   apt:
     name: 'apt-transport-https'
